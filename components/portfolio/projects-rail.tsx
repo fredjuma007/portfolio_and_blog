@@ -258,8 +258,7 @@ export function ProjectsRail() {
   return (
     <section
       id="projects"
-      className="relative py-24 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #080b12 0%, #0d1117 100%)" }}
+      className="relative py-24 overflow-hidden bg-white dark:bg-[#080b12]"
     >
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
@@ -271,10 +270,10 @@ export function ProjectsRail() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/5 mb-4">
             <span className="text-xs text-amber-400 font-mono tracking-wider">02 / projects</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             What I've Built
           </h2>
-          <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
             A selection of projects — personal, open source, and client work.
           </p>
         </div>

@@ -202,8 +202,7 @@ export function TerminalHero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #080b12 0%, #0d1117 50%, #080f1a 100%)" }}
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white dark:bg-[#080b12] pt-20"
     >
       {/* Canvas background */}
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
@@ -217,30 +216,31 @@ export function TerminalHero() {
       <div className="absolute bottom-36 left-16 w-8 h-8 bg-blue-500/5 rounded-lg rotate-45 animate-pulse hidden lg:block" />
       <div className="absolute bottom-52 right-10 w-14 h-14 border border-amber-500/10 rounded-lg -rotate-12 animate-pulse hidden lg:block" />
 
-      {/* Main content */}
-      <div className="relative z-10 w-full max-w-3xl mx-auto px-6 flex flex-col items-center text-center">
+      {/* Main content — name gets full viewport width, rest is constrained */}
+      <div className="relative z-10 w-full flex flex-col items-center text-center px-4">
 
-        {/* Available badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-500/20 bg-green-500/5 mb-8 animate-fade-in-up">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-sm text-green-400/80">Available for work</span>
-        </div>
-
-        {/* Name — dual tone, the brand */}
-        <div className="mb-4 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-          <h1 className="text-[clamp(4rem,12vw,8rem)] font-black tracking-tighter leading-none select-none">
-            <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 bg-clip-text text-transparent">
+        {/* Name — one massive line, fills the screen */}
+        <div className="w-full mb-3 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
+          <h1
+            className="font-black tracking-tighter leading-none whitespace-nowrap text-center select-none"
+            style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)" }}
+          >
+            <span className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 bg-clip-text text-transparent">
               FRED
             </span>
-            <span className="block bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent">
+            <span className="text-slate-900 dark:text-white" aria-hidden>{" "}</span>
+            <span className="bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 bg-clip-text text-transparent">
               JUMA
             </span>
           </h1>
         </div>
 
+        {/* Constrained column for everything below the name */}
+        <div className="w-full max-w-2xl">
+
         {/* Subtitle */}
         <p
-          className="text-base sm:text-lg text-slate-400 mb-10 tracking-widest uppercase animate-fade-in-up"
+          className="text-sm sm:text-base text-slate-500 dark:text-slate-400 mb-8 tracking-widest uppercase animate-fade-in-up"
           style={{ animationDelay: "200ms" }}
         >
           Software Developer · Nairobi, Kenya 🇰🇪
@@ -248,15 +248,11 @@ export function TerminalHero() {
 
         {/* Terminal card */}
         <div
-          className="w-full rounded-2xl border border-slate-700/40 overflow-hidden shadow-2xl shadow-blue-500/5 mb-10 animate-fade-in-up"
-          style={{
-            background: "rgba(13, 17, 23, 0.85)",
-            backdropFilter: "blur(12px)",
-            animationDelay: "350ms",
-          }}
+          className="w-full rounded-2xl border border-slate-200 dark:border-slate-700/40 overflow-hidden shadow-xl dark:shadow-blue-500/5 mb-8 animate-fade-in-up bg-white/80 dark:bg-[#0d1117]/85 backdrop-blur-sm"
+          style={{ animationDelay: "350ms" }}
         >
           {/* Title bar */}
-          <div className="flex items-center gap-2 px-5 py-3 border-b border-slate-700/40 bg-[#161b22]/60">
+          <div className="flex items-center gap-2 px-5 py-3 border-b border-slate-200 dark:border-slate-700/40 bg-slate-100/80 dark:bg-[#161b22]/60">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-500/70 hover:bg-red-500 transition-colors duration-200" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/70 hover:bg-yellow-500 transition-colors duration-200" />
@@ -268,12 +264,12 @@ export function TerminalHero() {
           </div>
 
           {/* Terminal body */}
-          <div className="px-5 py-5 font-mono text-sm text-left min-h-[220px]">
-            {/* Initial prompt visible before animation starts */}
+          <div className="px-5 py-5 font-mono text-sm text-left min-h-[200px]">
+            {/* Initial prompt */}
             {lines.length === 0 && (
               <div className="flex items-center gap-2 leading-6">
-                <span className="text-blue-400 select-none">{">"}</span>
-                <span className="text-blue-400 animate-pulse">▌</span>
+                <span className="text-blue-500 dark:text-blue-400 select-none">{">"}</span>
+                <span className="text-blue-500 dark:text-blue-400 animate-pulse">▌</span>
               </div>
             )}
 
@@ -284,24 +280,24 @@ export function TerminalHero() {
               if (line.type === "command") {
                 return (
                   <div key={line.id} className="flex items-center gap-2 leading-6">
-                    <span className="text-blue-400 select-none shrink-0">{">"}</span>
-                    <span className="text-slate-100">{line.text}</span>
+                    <span className="text-blue-500 dark:text-blue-400 select-none shrink-0">{">"}</span>
+                    <span className="text-slate-900 dark:text-slate-100">{line.text}</span>
                     {line.partial && (
-                      <span className="text-blue-400 animate-pulse">▌</span>
+                      <span className="text-blue-500 dark:text-blue-400 animate-pulse">▌</span>
                     )}
                   </div>
                 )
               }
               if (line.type === "output") {
                 return (
-                  <div key={line.id} className="text-slate-400 pl-5 leading-6">
+                  <div key={line.id} className="text-slate-600 dark:text-slate-400 pl-5 leading-6">
                     {line.text}
                   </div>
                 )
               }
               if (line.type === "status") {
                 return (
-                  <div key={line.id} className="text-green-400 pl-5 leading-6 font-medium">
+                  <div key={line.id} className="text-green-600 dark:text-green-400 pl-5 leading-6 font-medium">
                     {line.text}
                   </div>
                 )
@@ -309,8 +305,8 @@ export function TerminalHero() {
               if (line.type === "cursor") {
                 return (
                   <div key={line.id} className="flex items-center gap-2 leading-6 mt-1">
-                    <span className="text-blue-400 select-none shrink-0">{">"}</span>
-                    <span className="text-blue-400 animate-pulse">▌</span>
+                    <span className="text-blue-500 dark:text-blue-400 select-none shrink-0">{">"}</span>
+                    <span className="text-blue-500 dark:text-blue-400 animate-pulse">▌</span>
                   </div>
                 )
               }
@@ -321,7 +317,7 @@ export function TerminalHero() {
 
         {/* CTA buttons */}
         <div
-          className="flex flex-col sm:flex-row gap-4 items-center animate-fade-in-up"
+          className="flex flex-col sm:flex-row gap-4 items-center justify-center animate-fade-in-up"
           style={{ animationDelay: "550ms" }}
         >
           <Link
@@ -336,12 +332,14 @@ export function TerminalHero() {
             onClick={() =>
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="group flex items-center gap-2 px-8 py-3.5 rounded-xl border border-amber-500/30 text-amber-400 font-semibold text-base hover:bg-amber-500/8 hover:border-amber-500/60 transition-all duration-300"
+            className="group flex items-center gap-2 px-8 py-3.5 rounded-xl border border-amber-500/40 dark:border-amber-500/30 text-amber-600 dark:text-amber-400 font-semibold text-base hover:bg-amber-500/10 hover:border-amber-500/70 transition-all duration-300"
           >
             See My Work
             <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300" />
           </button>
         </div>
+
+        </div> {/* end constrained column */}
       </div>
 
       {/* Scroll bounce indicator */}

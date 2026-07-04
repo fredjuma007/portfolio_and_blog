@@ -21,7 +21,7 @@ import { Database } from "lucide-react"
 const CODE_SEGMENTS = [
   { text: "// How I approach building things\n\n", cls: "text-slate-500 italic" },
   { text: "const ", cls: "text-blue-400" },
-  { text: "fred", cls: "text-white font-semibold" },
+  { text: "fred", cls: "text-slate-800 dark:text-white font-semibold" },
   { text: " = {\n", cls: "text-slate-400" },
   { text: "  languages", cls: "text-sky-300" },
   { text: ": [", cls: "text-slate-400" },
@@ -161,8 +161,7 @@ export function SkillsSection() {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative py-24 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0d1117 0%, #080b12 100%)" }}
+      className="relative py-24 overflow-hidden bg-slate-50 dark:bg-[#0d1117]"
     >
       {/* Subtle grid background */}
       <div
@@ -180,10 +179,10 @@ export function SkillsSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/5 mb-4">
             <span className="text-xs text-blue-400 font-mono tracking-wider">01 / skills</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             What I Work With
           </h2>
-          <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
             The tools and technologies I reach for when building things.
           </p>
         </div>
@@ -193,24 +192,23 @@ export function SkillsSection() {
 
           {/* ── Code panel (left) ── */}
           <div
-            className="rounded-2xl border border-slate-700/40 overflow-hidden shadow-2xl shadow-blue-500/5"
-            style={{ background: "#0d1117" }}
+            className="rounded-2xl border border-slate-200 dark:border-slate-700/40 overflow-hidden shadow-xl dark:shadow-blue-500/5 bg-white dark:bg-[#0d1117]"
           >
             {/* Editor title bar */}
-            <div className="flex items-center gap-2 px-5 py-3 border-b border-slate-700/40 bg-[#161b22]/80">
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-slate-200 dark:border-slate-700/40 bg-slate-100 dark:bg-[#161b22]/80">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-500/60" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                 <div className="w-3 h-3 rounded-full bg-green-500/60" />
               </div>
               <span className="text-xs text-slate-500 ml-2 font-mono">fred.ts</span>
-              <span className="ml-auto text-xs text-slate-600 font-mono">TypeScript</span>
+              <span className="ml-auto text-xs text-slate-400 dark:text-slate-600 font-mono">TypeScript</span>
             </div>
 
             {/* Code area */}
             <div className="flex gap-0 p-5 overflow-x-auto">
               {/* Line numbers */}
-              <div className="shrink-0 w-8 mr-4 text-right select-none font-mono text-xs text-slate-600 leading-[1.625rem]">
+              <div className="shrink-0 w-8 mr-4 text-right select-none font-mono text-xs text-slate-400 dark:text-slate-600 leading-[1.625rem]">
                 {Array.from({ length: Math.max(lineCount, 22) }, (_, i) => (
                   <div key={i}>{i + 1}</div>
                 ))}
@@ -235,11 +233,10 @@ export function SkillsSection() {
             {TECH_STACK.map((tech, index) => (
               <div
                 key={tech.name}
-                className={`group rounded-xl p-4 border border-slate-700/40 hover:border-slate-600/60 transition-all duration-300 hover:scale-[1.03] cursor-default ${
+                className={`group rounded-xl p-4 border border-slate-200 dark:border-slate-700/40 hover:border-slate-300 dark:hover:border-slate-600/60 bg-white dark:bg-[#0d1117]/90 transition-all duration-300 hover:scale-[1.03] cursor-default ${
                   inView ? "animate-fade-in-up" : "opacity-0"
                 }`}
                 style={{
-                  background: "rgba(13, 17, 23, 0.9)",
                   animationDelay: `${index * 75}ms`,
                   animationFillMode: "both",
                 }}
@@ -261,7 +258,7 @@ export function SkillsSection() {
                     </div>
                   )}
                   <div>
-                    <p className="text-sm font-semibold text-slate-200 leading-tight">
+                    <p className="text-sm font-semibold text-slate-900 dark:text-slate-200 leading-tight">
                       {tech.name}
                     </p>
                     <p className="text-xs text-slate-500 mt-0.5">{tech.label}</p>

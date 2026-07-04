@@ -40,8 +40,7 @@ function PostPreview({
         isTech
           ? "border-blue-500/20 hover:border-blue-500/40 hover:shadow-blue-500/10"
           : "border-amber-500/20 hover:border-amber-500/40 hover:shadow-amber-500/10"
-      }`}
-      style={{ background: "rgba(13, 17, 23, 0.9)" }}
+      } bg-white dark:bg-[#0d1117] border-slate-200 dark:border-slate-800/60`}
     >
       {/* Top accent bar */}
       <div
@@ -60,7 +59,7 @@ function PostPreview({
             className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-70"
           />
           <div
-            className={`absolute inset-0 bg-gradient-to-t from-[#0d1117] via-transparent to-transparent`}
+            className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0d1117] via-transparent to-transparent"
           />
         </div>
       )}
@@ -70,8 +69,8 @@ function PostPreview({
         <div
           className={`inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full border text-xs font-semibold ${
             isTech
-              ? "border-blue-500/20 bg-blue-500/8 text-blue-400"
-              : "border-amber-500/20 bg-amber-500/8 text-amber-400"
+              ? "border-blue-500/20 bg-blue-500/8 text-blue-500 dark:text-blue-400"
+              : "border-amber-500/20 bg-amber-500/8 text-amber-600 dark:text-amber-400"
           }`}
         >
           {isTech ? (
@@ -84,19 +83,19 @@ function PostPreview({
 
         {post ? (
           <>
-            <h3 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-blue-300 transition-colors duration-300 line-clamp-2">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors duration-300 line-clamp-2">
               {post.title}
             </h3>
-            <p className="text-sm text-slate-400 leading-relaxed line-clamp-2 mb-4">
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2 mb-4">
               {post.excerpt}
             </p>
           </>
         ) : (
           <>
-            <h3 className="text-lg font-bold text-white mb-2">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
               {isTech ? "Tech articles & insights" : "Book reviews & literary dives"}
             </h3>
-            <p className="text-sm text-slate-400 leading-relaxed mb-4">
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
               {isTech
                 ? "Exploring technology, software, and the things I'm building."
                 : "Reviews, recommendations, and thoughts on the books I've been reading."}
@@ -106,7 +105,7 @@ function PostPreview({
 
         <span
           className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300 group-hover:gap-2.5 ${
-            isTech ? "text-blue-400" : "text-amber-400"
+            isTech ? "text-blue-600 dark:text-blue-400" : "text-amber-600 dark:text-amber-400"
           }`}
         >
           {post ? "Read article" : "Browse posts"}
@@ -126,8 +125,7 @@ export async function BlogTeaser() {
   return (
     <section
       id="blog"
-      className="relative py-24 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0d1117 0%, #080b12 100%)" }}
+      className="relative py-24 overflow-hidden bg-slate-50 dark:bg-[#0d1117]"
     >
       {/* Dual-tone ambient glows */}
       <div className="absolute top-1/2 left-8 w-72 h-72 bg-blue-500/4 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
@@ -136,13 +134,13 @@ export async function BlogTeaser() {
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/50 bg-slate-800/30 mb-4">
-            <span className="text-xs text-slate-400 font-mono tracking-wider">03 / writing</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700/50 bg-slate-100 dark:bg-slate-800/30 mb-4">
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-mono tracking-wider">03 / writing</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Circuits &amp; Chapters
           </h2>
-          <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
             My blog — where tech sparks meet story pages.
           </p>
         </div>
@@ -157,7 +155,7 @@ export async function BlogTeaser() {
         <div className="text-center mt-10">
           <Link
             href="/tech"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-700/50 text-slate-300 text-sm font-semibold hover:bg-slate-800/40 hover:border-slate-600 transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/40 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 hover:scale-105"
           >
             Browse all articles
             <ArrowRight className="w-4 h-4" />
@@ -167,3 +165,4 @@ export async function BlogTeaser() {
     </section>
   )
 }
+
