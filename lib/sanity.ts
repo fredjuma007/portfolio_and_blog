@@ -38,3 +38,19 @@ export interface Post {
   createdAt: string
   _createdAt: string
 }
+
+export interface Project {
+  _id: string
+  title: string
+  slug: {
+    current: string
+  }
+  description: string
+  thumbnail: any
+  techStack: string[]
+  liveUrl?: string
+  githubUrl?: string
+  featured: boolean
+  order: number
+  status: "live" | "in-progress" | "archived"
+}
