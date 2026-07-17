@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 const NAV_LINKS = [
   { href: "#skills",   label: "Skills",    isAnchor: true  },
   { href: "#projects", label: "Projects",  isAnchor: true  },
-  { href: "/blog",     label: "Writing",   isAnchor: false },
+  { href: "/circuits-and-chapters", label: "Writing",   isAnchor: false },
   { href: "/contact",  label: "Contact",   isAnchor: false },
 ]
 

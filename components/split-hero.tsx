@@ -35,11 +35,6 @@ export function SplitHero() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-blue-500/5 to-transparent" />
         <div className="relative z-10 h-full flex flex-col justify-center items-center p-8 lg:p-16 text-center">
           <div className="mb-12 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-sm font-medium text-blue-600 dark:text-blue-400 mb-8">
-              <Sparkles className="w-4 h-4" />
-              Dive into Tech Wonders
-            </div>
-
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
               <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent">
                 Tech
@@ -98,11 +93,6 @@ export function SplitHero() {
         <div className="absolute inset-0 bg-gradient-to-br from-amber-600/10 via-amber-500/5 to-transparent" />
         <div className="relative z-10 h-full flex flex-col justify-center items-center p-8 lg:p-16 text-center">
           <div className="mb-12 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-sm font-medium text-amber-600 dark:text-amber-400 mb-8">
-              <BookOpen className="w-4 h-4" />
-              Explore Literary Worlds
-            </div>
-
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
               <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-400 bg-clip-text text-transparent">
                 Chapters
