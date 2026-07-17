@@ -135,7 +135,7 @@ export async function BlogTeaser() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700/50 bg-slate-100 dark:bg-slate-800/30 mb-4">
-            <span className="text-xs text-slate-500 dark:text-slate-400 font-mono tracking-wider">03 / writing</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-mono tracking-wider">03 / Blog</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Circuits &amp; Chapters
