@@ -28,7 +28,7 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="group flex items-center space-x-3">
+          <Link href="/blog" className="group flex items-center space-x-3">
             <div className="relative w-10 h-10 transform group-hover:scale-110 transition-transform duration-300">
               <Image
                 src="/Circuits & Chapters logo.png"
@@ -48,11 +48,10 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center space-x-1">
             {[
-              { href: "/", label: "Home" },
+              { href: "/blog", label: "Home" },
               { href: "/tech", label: "Tech" },
               { href: "/books", label: "Books" },
-              { href: "/about", label: "About" },
-              { href: "/contact", label: "Contact" },
+              { href: "/", label: "Portfolio" },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -118,11 +117,10 @@ export function Navigation() {
 
             <div className="relative z-10">
               {[
-                { href: "/", label: "Home" },
+                { href: "/blog", label: "Home" },
                 { href: "/tech", label: "Tech" },
                 { href: "/books", label: "Books" },
-                { href: "/about", label: "About" },
-                { href: "/contact", label: "Contact" },
+                { href: "/", label: "Portfolio" },
               ].map((item, index) => (
                 <Link
                   key={item.href}
