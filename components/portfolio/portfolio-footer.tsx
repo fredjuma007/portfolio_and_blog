@@ -10,6 +10,7 @@ const QUICK_LINKS = [
   { href: "#home",     label: "Home",        color: "hover:text-blue-500"  },
   { href: "#skills",   label: "Skills",      color: "hover:text-blue-500"  },
   { href: "#projects", label: "Projects",    color: "hover:text-blue-500"  },
+  { href: "/contact?tab=services", label: "Services", color: "hover:text-blue-500" },
   { href: "/contact",  label: "Contact",     color: "hover:text-blue-500"  },
   // Blog
   { href: "/circuits-and-chapters", label: "Blog",  color: "hover:text-amber-500" },

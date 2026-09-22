@@ -1,7 +1,8 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { Suspense, useEffect, useState } from "react"
+import { useSearchParams } from "next/navigation"
 import { PortfolioNav } from "@/components/portfolio/portfolio-nav"
 import { PortfolioFooter } from "@/components/portfolio/portfolio-footer"
 import { Button } from "@/components/ui/button"
@@ -159,8 +160,21 @@ const SERVICE_PACKAGES = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function ContactPage() {
-  const [activeTab, setActiveTab] = useState<"message" | "services">("message")
+function ContactContent() {
+  const searchParams = useSearchParams()
+  const tabParam = searchParams.get("tab")
+  const [activeTab, setActiveTab] = useState<"message" | "services">(
+    tabParam === "services" ? "services" : "message"
+  )
+
+  useEffect(() => {
+    if (tabParam === "services") {
+      setActiveTab("services")
+    } else if (tabParam === "message") {
+      setActiveTab("message")
+    }
+  }, [tabParam])
+
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null)
 
   const [formData, setFormData] = useState({
@@ -611,5 +625,13 @@ export default function ContactPage() {
 
       <PortfolioFooter />
     </div>
+  )
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={null}>
+      <ContactContent />
+    </Suspense>
   )
 }

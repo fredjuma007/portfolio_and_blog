@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 const NAV_LINKS = [
   { href: "#skills",   label: "Skills",    isAnchor: true  },
   { href: "#projects", label: "Projects",  isAnchor: true  },
+  { href: "/contact?tab=services", label: "Services", isAnchor: false },
   { href: "/circuits-and-chapters", label: "Blog",   isAnchor: false },
   { href: "/contact",  label: "Contact",   isAnchor: false },
 ]
@@ -27,6 +28,10 @@ export function PortfolioNav() {
   }, [])
 
   const handleAnchorClick = (e: React.MouseEvent, href: string) => {
+    if (typeof window !== "undefined" && window.location.pathname !== "/") {
+      window.location.href = `/${href}`
+      return
+    }
     e.preventDefault()
     setIsOpen(false)
     const target = document.querySelector(href)
