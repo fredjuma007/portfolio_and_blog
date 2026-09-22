@@ -12,7 +12,7 @@ import ComingSoonWrapper from "@/components/coming-soon-wrapper"
 export const metadata: Metadata = {
   metadataBase: new URL("https://circuits-chapters.vercel.app"),
   title: {
-    default: "Fred Juma — Software Developer",
+    default: "Fred Juma | Software Developer",
     template: "%s | Fred Juma",
   },
   description:
