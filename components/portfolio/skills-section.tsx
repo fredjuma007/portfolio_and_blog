@@ -3,18 +3,18 @@
 import { useEffect, useRef, useState } from "react"
 import {
   SiTypescript,
-  SiJavascript,
   SiReact,
   SiNextdotjs,
   SiNodedotjs,
   SiPython,
   SiTailwindcss,
   SiGit,
-  SiVercel,
+  SiKotlin,
+  SiCloudflare,
 } from "react-icons/si"
 import { Database } from "lucide-react"
 
-// ─── Code tokens ─────────────────────────────────────────────────────────────
+//  Code tokens
 // Each segment has a text string and a CSS class for syntax colouring.
 // Characters are typed one by one across all segments.
 
@@ -27,9 +27,9 @@ const CODE_SEGMENTS = [
   { text: ": [", cls: "text-slate-400" },
   { text: '"TypeScript"', cls: "text-amber-300" },
   { text: ", ", cls: "text-slate-400" },
-  { text: '"JavaScript"', cls: "text-amber-300" },
-  { text: ", ", cls: "text-slate-400" },
   { text: '"Python"', cls: "text-amber-300" },
+  { text: ", ", cls: "text-slate-400" },
+  { text: '"Kotlin"', cls: "text-amber-300" },
   { text: "],\n\n", cls: "text-slate-400" },
   { text: "  frontend", cls: "text-sky-300" },
   { text: ": {\n", cls: "text-slate-400" },
@@ -49,15 +49,15 @@ const CODE_SEGMENTS = [
   { text: ': "', cls: "text-slate-400" },
   { text: "Node.js", cls: "text-amber-300" },
   { text: '",\n', cls: "text-slate-400" },
-  { text: "    cms", cls: "text-sky-300" },
-  { text: ':     "', cls: "text-slate-400" },
-  { text: "Sanity CMS", cls: "text-amber-300" },
+  { text: "    database", cls: "text-sky-300" },
+  { text: ': "', cls: "text-slate-400" },
+  { text: "PostgreSQL · MySQL", cls: "text-amber-300" },
   { text: '",\n  },\n\n', cls: "text-slate-400" },
   { text: "  tools", cls: "text-sky-300" },
   { text: ":     [", cls: "text-slate-400" },
   { text: '"Git"', cls: "text-amber-300" },
   { text: ", ", cls: "text-slate-400" },
-  { text: '"Vercel"', cls: "text-amber-300" },
+  { text: '"Cloudflare"', cls: "text-amber-300" },
   { text: ", ", cls: "text-slate-400" },
   { text: '"VS Code"', cls: "text-amber-300" },
   { text: "],\n\n", cls: "text-slate-400" },
@@ -93,22 +93,22 @@ function groupVisible(count: number): { text: string; cls: string }[] {
   return groups
 }
 
-// ─── Tech stack cards ─────────────────────────────────────────────────────────
+//  Tech stack cards 
 
 const TECH_STACK = [
-  { name: "TypeScript",  Icon: SiTypescript,  color: "#3b82f6", label: "daily driver" },
-  { name: "React",       Icon: SiReact,        color: "#38bdf8", label: "frontend"     },
-  { name: "Next.js",     Icon: SiNextdotjs,    color: "#ffffff", label: "full stack"   },
-  { name: "Node.js",     Icon: SiNodedotjs,    color: "#22c55e", label: "backend"      },
-  { name: "JavaScript",  Icon: SiJavascript,   color: "#fbbf24", label: "the OG"       },
-  { name: "Python",      Icon: SiPython,       color: "#93c5fd", label: "scripting"    },
-  { name: "Tailwind",    Icon: SiTailwindcss,  color: "#22d3ee", label: "styling"      },
-  { name: "Git",         Icon: SiGit,          color: "#f97316", label: "always"       },
-  { name: "Vercel",      Icon: SiVercel,       color: "#ffffff", label: "deployment"   },
-  { name: "Sanity CMS",  Icon: null,           color: "#e2574c", label: "cms / content"},
+  { name: "TypeScript",         Icon: SiTypescript,  color: "#3b82f6", label: "daily driver" },
+  { name: "React",              Icon: SiReact,       color: "#38bdf8", label: "frontend"     },
+  { name: "Next.js",            Icon: SiNextdotjs,   color: "#ffffff", label: "full stack"   },
+  { name: "Node.js",            Icon: SiNodedotjs,   color: "#22c55e", label: "backend"      },
+  { name: "Kotlin",             Icon: SiKotlin,      color: "#7F52FF", label: "mobile / backend" },
+  { name: "Python",             Icon: SiPython,      color: "#93c5fd", label: "scripting"    },
+  { name: "Tailwind",           Icon: SiTailwindcss, color: "#22d3ee", label: "styling"      },
+  { name: "Git",                Icon: SiGit,         color: "#f97316", label: "always"       },
+  { name: "Cloudflare",         Icon: SiCloudflare,  color: "#f38020", label: "hosting & domain management" },
+  { name: "PostgreSQL & MySQL", Icon: Database,      color: "#38bdf8", label: "databases"   },
 ]
 
-// ─── Component ────────────────────────────────────────────────────────────────
+//  Component 
 
 export function SkillsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -183,7 +183,7 @@ export function SkillsSection() {
             What I Work With
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
-            The tools and technologies I reach for when building things.
+             Loadout: The tools and technologies I reach for when building things.
           </p>
         </div>
 
