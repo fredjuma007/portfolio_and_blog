@@ -40,9 +40,9 @@ export function PortfolioNav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/90 dark:bg-[#080b12]/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800/50 shadow-sm"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled || isOpen
+          ? "bg-white/95 dark:bg-[#080b12]/95 backdrop-blur-2xl border-b border-slate-200 dark:border-slate-800/80 shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -141,30 +141,32 @@ export function PortfolioNav() {
         {/* Mobile dropdown */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+            isOpen ? "max-h-[420px] opacity-100 pb-6 pt-2" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="py-4 space-y-1 border-t border-slate-200 dark:border-slate-800/50">
+          <div className="p-3 space-y-1 rounded-2xl bg-white dark:bg-[#0d1117] border border-slate-200 dark:border-slate-800 shadow-2xl">
             {NAV_LINKS.map((item, index) =>
               item.isAnchor ? (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleAnchorClick(e, item.href)}
-                  className="flex items-center px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-xl mx-1 hover:bg-slate-100 dark:hover:bg-slate-800/40 transition-all duration-200 cursor-pointer"
+                  className="flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-all duration-200 cursor-pointer"
                   style={{ animationDelay: `${index * 40}ms` }}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  <span className="text-xs text-slate-400 font-mono">→</span>
                 </a>
               ) : (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-xl mx-1 hover:bg-slate-100 dark:hover:bg-slate-800/40 transition-all duration-200"
+                  className="flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-all duration-200"
                   style={{ animationDelay: `${index * 40}ms` }}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  <span className="text-xs text-slate-400 font-mono">→</span>
                 </Link>
               )
             )}

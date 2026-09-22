@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Github, Facebook, Instagram, ArrowRight, Mail } from "lucide-react"
 import { SiX, SiGoodreads, SiTiktok } from "react-icons/si"
+import { WhatsAppBubble } from "./whatsapp-bubble"
 
 const QUICK_LINKS = [
   // Portfolio sections
@@ -64,18 +65,19 @@ function handleAnchorClick(e: React.MouseEvent<HTMLAnchorElement>, href: string)
 
 export function PortfolioFooter() {
   return (
-    <footer className="relative bg-gradient-to-br from-background via-muted/30 to-background border-t border-border/50 overflow-hidden">
-      {/* Floating orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-xl animate-float" />
-        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-br from-blue-400/8 to-transparent rounded-full blur-lg animate-float-delayed" />
-        <div className="absolute bottom-8 left-1/3 w-20 h-20 bg-gradient-to-br from-slate-400/5 to-transparent rounded-full blur-xl animate-float-slow" />
-      </div>
+    <>
+      <footer className="relative bg-gradient-to-br from-background via-muted/30 to-background border-t border-border/50 overflow-hidden">
+        {/* Floating orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-xl animate-float" />
+          <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-br from-blue-400/8 to-transparent rounded-full blur-lg animate-float-delayed" />
+          <div className="absolute bottom-8 left-1/3 w-20 h-20 bg-gradient-to-br from-slate-400/5 to-transparent rounded-full blur-xl animate-float-slow" />
+        </div>
 
-      {/* Subtle grid */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24px,rgba(255,255,255,0.05)_25px,rgba(255,255,255,0.05)_26px,transparent_27px,transparent_74px,rgba(255,255,255,0.05)_75px,rgba(255,255,255,0.05)_76px,transparent_77px),linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:75px_75px]" />
-      </div>
+        {/* Subtle grid */}
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24px,rgba(255,255,255,0.05)_25px,rgba(255,255,255,0.05)_26px,transparent_27px,transparent_74px,rgba(255,255,255,0.05)_75px,rgba(255,255,255,0.05)_76px,transparent_77px),linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:75px_75px]" />
+        </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -204,5 +206,7 @@ export function PortfolioFooter() {
         </div>
       </div>
     </footer>
+    <WhatsAppBubble />
+  </>
   )
 }
