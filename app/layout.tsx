@@ -38,6 +38,11 @@ export const metadata: Metadata = {
     "Jibijaber",
     "Tech Blog",
     "Book Reviews",
+    "Mobile App Developer",
+    "App Developer",
+    "Book Lover",
+    "Bookworm",
+    "Book"
   ],
   openGraph: {
     title: "Fred Juma — Software Developer",
@@ -103,8 +108,8 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
-            enableSystem
+            defaultTheme="dark"
+            enableSystem={false}
             disableTransitionOnChange
           >
             <ComingSoonWrapper>{children}</ComingSoonWrapper>

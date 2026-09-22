@@ -248,17 +248,17 @@ export function TerminalHero() {
 
           {/* Terminal card */}
           <div
-            className="w-full rounded-2xl border border-slate-200 dark:border-slate-700/40 overflow-hidden shadow-xl dark:shadow-blue-500/5 mb-8 animate-fade-in-up bg-white/80 dark:bg-[#0d1117]/85 backdrop-blur-sm"
+            className="w-full rounded-2xl border border-slate-800/80 dark:border-slate-700/50 overflow-hidden shadow-2xl shadow-slate-950/20 dark:shadow-blue-500/5 mb-8 animate-fade-in-up bg-[#0d1117] backdrop-blur-sm"
             style={{ animationDelay: "350ms" }}
           >
             {/* Title bar */}
-            <div className="flex items-center gap-2 px-5 py-3 border-b border-slate-200 dark:border-slate-700/40 bg-slate-100/80 dark:bg-[#161b22]/60">
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-slate-800/80 bg-[#161b22]">
               <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/70 hover:bg-red-500 transition-colors duration-200" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/70 hover:bg-yellow-500 transition-colors duration-200" />
-                <div className="w-3 h-3 rounded-full bg-green-500/70 hover:bg-green-500 transition-colors duration-200" />
+                <div className="w-3 h-3 rounded-full bg-red-500/80 hover:bg-red-500 transition-colors duration-200" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80 hover:bg-yellow-500 transition-colors duration-200" />
+                <div className="w-3 h-3 rounded-full bg-green-500/80 hover:bg-green-500 transition-colors duration-200" />
               </div>
-              <span className="text-xs text-slate-500 ml-2 font-mono select-none">
+              <span className="text-xs text-slate-400 ml-2 font-mono select-none">
                 ~/fred-juma/portfolio — zsh
               </span>
             </div>
@@ -268,8 +268,8 @@ export function TerminalHero() {
               {/* Initial prompt */}
               {lines.length === 0 && (
                 <div className="flex items-center gap-2 leading-6">
-                  <span className="text-blue-500 dark:text-blue-400 select-none">{">"}</span>
-                  <span className="text-blue-500 dark:text-blue-400 animate-pulse">▌</span>
+                  <span className="text-blue-400 select-none">{">"}</span>
+                  <span className="text-blue-400 animate-pulse">▌</span>
                 </div>
               )}
 
@@ -280,24 +280,24 @@ export function TerminalHero() {
                 if (line.type === "command") {
                   return (
                     <div key={line.id} className="flex items-center gap-2 leading-6">
-                      <span className="text-blue-500 dark:text-blue-400 select-none shrink-0">{">"}</span>
-                      <span className="text-slate-900 dark:text-slate-100">{line.text}</span>
+                      <span className="text-blue-400 select-none shrink-0">{">"}</span>
+                      <span className="text-slate-100 font-medium">{line.text}</span>
                       {line.partial && (
-                        <span className="text-blue-500 dark:text-blue-400 animate-pulse">▌</span>
+                        <span className="text-blue-400 animate-pulse">▌</span>
                       )}
                     </div>
                   )
                 }
                 if (line.type === "output") {
                   return (
-                    <div key={line.id} className="text-slate-600 dark:text-slate-400 pl-5 leading-6">
+                    <div key={line.id} className="text-slate-300 pl-5 leading-6 font-normal">
                       {line.text}
                     </div>
                   )
                 }
                 if (line.type === "status") {
                   return (
-                    <div key={line.id} className="text-green-600 dark:text-green-400 pl-5 leading-6 font-medium">
+                    <div key={line.id} className="text-emerald-400 pl-5 leading-6 font-medium">
                       {line.text}
                     </div>
                   )
@@ -305,8 +305,8 @@ export function TerminalHero() {
                 if (line.type === "cursor") {
                   return (
                     <div key={line.id} className="flex items-center gap-2 leading-6 mt-1">
-                      <span className="text-blue-500 dark:text-blue-400 select-none shrink-0">{">"}</span>
-                      <span className="text-blue-500 dark:text-blue-400 animate-pulse">▌</span>
+                      <span className="text-blue-400 select-none shrink-0">{">"}</span>
+                      <span className="text-blue-400 animate-pulse">▌</span>
                     </div>
                   )
                 }
@@ -322,7 +322,7 @@ export function TerminalHero() {
           >
             <Link
               href="/contact"
-              className="group relative px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 overflow-hidden"
+              className="group relative px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 overflow-hidden shadow-md shadow-blue-500/20"
             >
               <span className="relative z-10">Let's Work Together →</span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -332,7 +332,7 @@ export function TerminalHero() {
               onClick={() =>
                 document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
               }
-              className="group flex items-center gap-2 px-8 py-3.5 rounded-xl border border-amber-500/40 dark:border-amber-500/30 text-amber-600 dark:text-amber-400 font-semibold text-base hover:bg-amber-500/10 hover:border-amber-500/70 transition-all duration-300"
+              className="group flex items-center gap-2 px-8 py-3.5 rounded-xl border border-amber-500/50 dark:border-amber-500/30 text-amber-600 dark:text-amber-400 bg-white dark:bg-transparent font-semibold text-base hover:bg-amber-500/10 hover:border-amber-500/70 transition-all duration-300 shadow-sm"
             >
               See My Work
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300" />

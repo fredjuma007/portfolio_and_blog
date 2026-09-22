@@ -22,11 +22,10 @@ function ProjectCard({ project }: { project: Project }) {
     : null
 
   return (
-    <article className="shrink-0 w-[340px] sm:w-[380px] snap-start rounded-2xl border border-slate-700/40 overflow-hidden flex flex-col group hover:border-slate-600/60 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5"
-      style={{ background: "rgba(13, 17, 23, 0.95)" }}
+    <article className="shrink-0 w-[340px] sm:w-[380px] snap-start rounded-2xl border border-slate-200 dark:border-slate-700/40 overflow-hidden flex flex-col group hover:border-slate-300 dark:hover:border-slate-600/60 transition-all duration-300 bg-white dark:bg-[#0d1117]/95 shadow-md hover:shadow-xl dark:shadow-none dark:hover:shadow-blue-500/5"
     >
       {/* Thumbnail */}
-      <div className="relative w-full aspect-video bg-slate-800/60 overflow-hidden">
+      <div className="relative w-full aspect-video bg-slate-100 dark:bg-slate-800/60 overflow-hidden border-b border-slate-100 dark:border-slate-800/50">
         {imageUrl ? (
           <Image
             src={imageUrl}
@@ -46,25 +45,25 @@ function ProjectCard({ project }: { project: Project }) {
 
         {/* Featured badge */}
         {project.featured && (
-          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-semibold backdrop-blur-sm">
+          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-amber-500 text-white dark:bg-amber-500/20 dark:border dark:border-amber-500/30 dark:text-amber-400 text-xs font-semibold backdrop-blur-sm shadow-sm">
             ★ Featured
           </div>
         )}
 
         {/* Status badge */}
-        <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 border border-slate-700/50 backdrop-blur-sm">
+        <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 dark:bg-black/50 border border-slate-200/80 dark:border-slate-700/50 backdrop-blur-sm shadow-sm">
           <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`} />
-          <span className={`text-xs font-medium ${status.text}`}>{status.label}</span>
+          <span className={`text-xs font-medium text-slate-700 dark:${status.text}`}>{status.label}</span>
         </div>
       </div>
 
       {/* Card body */}
       <div className="flex flex-col flex-1 p-5 gap-4">
         <div>
-          <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors duration-300">
             {project.title}
           </h3>
-          <p className="text-sm text-slate-400 leading-relaxed line-clamp-3">
+          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
             {project.description}
           </p>
         </div>
@@ -75,7 +74,7 @@ function ProjectCard({ project }: { project: Project }) {
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-2 py-0.5 rounded-md bg-blue-500/8 border border-blue-500/15 text-blue-300/80 text-xs font-mono"
+                className="px-2 py-0.5 rounded-md bg-blue-50 dark:bg-blue-500/8 border border-blue-100 dark:border-blue-500/15 text-blue-700 dark:text-blue-300/80 text-xs font-mono font-medium"
               >
                 {tech}
               </span>
@@ -90,7 +89,7 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold hover:from-blue-500 hover:to-blue-400 transition-all duration-300 hover:scale-105"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold hover:from-blue-500 hover:to-blue-400 transition-all duration-300 hover:scale-105 shadow-sm shadow-blue-500/20"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               View Live
@@ -101,7 +100,7 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-600/60 text-slate-300 text-sm font-semibold hover:bg-slate-700/40 hover:border-slate-500 transition-all duration-300"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600/60 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-700/40 hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-300"
             >
               <Github className="w-3.5 h-3.5" />
               GitHub
@@ -167,14 +166,14 @@ function ScrollRail({ projects }: { projects: Project[] }) {
   return (
     <div className="relative">
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#080b12] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#080b12] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-slate-50 dark:from-[#080b12] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-50 dark:from-[#080b12] to-transparent z-10 pointer-events-none" />
 
       {/* Scroll buttons (desktop) */}
       {canScrollLeft && (
         <button
           onClick={() => scrollBy("left")}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-800/90 border border-slate-700 flex items-center justify-center text-slate-300 hover:bg-slate-700 transition-all duration-200 shadow-lg hidden md:flex"
+          className="absolute left-4 top-[32%] -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/95 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 hover:scale-110 transition-all duration-200 shadow-xl hidden md:flex"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -182,7 +181,7 @@ function ScrollRail({ projects }: { projects: Project[] }) {
       {canScrollRight && (
         <button
           onClick={() => scrollBy("right")}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-800/90 border border-slate-700 flex items-center justify-center text-slate-300 hover:bg-slate-700 transition-all duration-200 shadow-lg hidden md:flex"
+          className="absolute right-4 top-[32%] -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/95 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 hover:scale-110 transition-all duration-200 shadow-xl hidden md:flex"
         >
           <ChevronRight className="w-5 h-5" />
         </button>

@@ -8,7 +8,7 @@ import { PortfolioSkeleton } from "@/components/portfolio/portfolio-skeleton"
 
 export default function PortfolioPage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-[#080b12]">
+    <main className="min-h-screen bg-slate-50/50 dark:bg-[#080b12]">
       <PortfolioNav />
       <PortfolioSkeleton />
 
